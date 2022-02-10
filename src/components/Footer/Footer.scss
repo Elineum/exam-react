@@ -1,0 +1,14 @@
+.page-foot {
+    background-color: #151515;
+    color: white;
+    text-align: center;
+
+    &__list {
+        list-style: none;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: white;
+    }
+}
