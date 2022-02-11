@@ -9,12 +9,13 @@ import {
   ROUTE_SEARCH,
   ROUTE_SHOP,
 } from "../../utils/constants";
+import { Home } from "../Home/Home";
 
 export const Main = () => {
   return (
     <main>
       <Routes>
-        <Route path={ROUTE_HOME} element={<h1>TEST1</h1>} />
+        <Route path={ROUTE_HOME} element={<Home/>} />
         <Route path={ROUTE_CATALOG} element={<h1>TEST2</h1>} />
         <Route path={ROUTE_NEWS} element={<h1>TEST3</h1>} />
         <Route path={ROUTE_PAGES} element={<h1>TEST4</h1>} />

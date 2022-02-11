@@ -1,7 +1,60 @@
-.page-head
- {
+.page-head {
     background-image: url(../../../public/bg.jpg);
     background-repeat: no-repeat;
-    background-position: top;
     background-size: cover;
+    height: 80vh;
+
+    &__wrap {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(8, max-content);
+        gap: 16px;
+    }
+
+    &__link {
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 4px;
+        padding: 6px 10px;
+        font-family: "Roboto", sans-serif;
+        transition: all 0.3s ease-in-out;
+
+        &.active {
+            background-color: #d81a24;
+        }
+
+        &:hover {
+            background-color: #d81a24;
+        }
+    }
+}
+
+.header-down:after {
+    font-weight: 400;
+    font-size: 8px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.header-search:before {
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.header-shopping:before {
+    font-weight: 400;
+    font-size: 14px;
+    display: inline-block;
+    margin-left: 5px;
 }

@@ -5,10 +5,9 @@ import { Main } from "./components/Main/Main";
 
 function App() {
   const [filmList, setFilmList] = useState([]);
+
   useEffect(() => {
-    fetch(
-      "https://api.themoviedb.org/3/movie/550?api_key=13204a6283a695abbf1dbce108696bf6"
-    )
+    fetch(process.env.REACT_APP_API + "&page=1")
       .then((response) => response.json())
       .then((data) => {
         let temp = data;
@@ -16,12 +15,7 @@ function App() {
       });
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("mock", JSON.stringify(filmList));
-  }, [filmList]);
-
-  let mock = localStorage.getItem("mock");
-  console.log(mock);
+  console.log(filmList);
 
   return (
     <>

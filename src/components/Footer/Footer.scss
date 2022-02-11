@@ -3,12 +3,51 @@
     color: white;
     text-align: center;
 
+    &__content {
+        padding: 40px 0;
+
+        @media (min-width: 992px) {
+            padding: 55px 0;
+        }
+    }
+
     &__list {
         list-style: none;
+        display: grid;
+        grid-template-columns: repeat(6, max-content);
+        gap: 12px;
+        padding: 20px 0 55px;
+        justify-content: center;
+    }
+
+    &__item {
+        transition: all ease-in-out 0.9s;
     }
 
     &__link {
         text-decoration: none;
         color: white;
+        transition: all ease-in-out 0.3s;
+
+        &:hover {
+            color: #d81a24;
+            font-size: 18px;
+        }
+    }
+
+    &__copyright {
+        color: #b7b7b7;
+    }
+
+    &__copyright-link {
+        color: #b7b7b7;
+        text-decoration: none;
+        transition: all ease-in-out 0.2s;
+
+        &:hover {
+            color: #d81a24;
+        }
     }
 }
+
+// TODO edit height(6 string)
