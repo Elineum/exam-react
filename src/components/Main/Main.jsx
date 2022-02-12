@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
+import { AppContext } from "../../context";
 import {
   ROUTE_BASKET,
   ROUTE_CATALOG,
@@ -6,12 +8,13 @@ import {
   ROUTE_HOME,
   ROUTE_NEWS,
   ROUTE_PAGES,
-  ROUTE_SEARCH,
   ROUTE_SHOP,
 } from "../../utils/constants";
 import { Home } from "../Home/Home";
 
 export const Main = () => {
+  const { filmList } = useContext(AppContext);
+
   return (
     <main>
       <Routes>
@@ -21,7 +24,6 @@ export const Main = () => {
         <Route path={ROUTE_PAGES} element={<h1>TEST4</h1>} />
         <Route path={ROUTE_SHOP} element={<h1>TEST5</h1>} />
         <Route path={ROUTE_CONTACT} element={<h1>TEST6</h1>} />
-        <Route path={ROUTE_SEARCH} element={<h1>TEST7</h1>} />
         <Route path={ROUTE_BASKET} element={<h1>TEST8</h1>} />
         <Route path="*" element={<h1>Wrong page :(</h1>} />
       </Routes>

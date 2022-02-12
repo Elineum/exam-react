@@ -2,9 +2,25 @@
     background-image: url(../../../public/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 80vh;
+
+    &__adaptive-wrap {
+        padding: 30px;
+
+        @media (min-width: 768px) {
+            padding: 55px 0;
+        }
+
+        @media (min-width: 1200px) {
+            padding: 48px 0;
+        }
+    }
+
+    &__logo-wrap {
+        padding-bottom: 11px;
+    }
 
     &__wrap {
+        position: relative;
         display: grid;
         grid-template-columns: max-content max-content;
         justify-content: space-between;
@@ -15,46 +31,163 @@
         list-style: none;
         display: grid;
         grid-template-columns: repeat(8, max-content);
+        align-items: center;
         gap: 16px;
     }
 
-    &__link {
-        color: white;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 700;
-        border-radius: 4px;
-        padding: 6px 10px;
-        font-family: "Roboto", sans-serif;
+    &__item {
+        order: 1;
+        min-height: 38px;
+        min-width: 42px;
         transition: all 0.3s ease-in-out;
+        border-radius: 4px;
+
+        &:nth-child(7) {
+            order: 3;
+        }
+
+        &:last-child {
+            order: 2;
+        }
 
         &.active {
             background-color: #d81a24;
+            border-radius: 4px;
         }
 
         &:hover {
             background-color: #d81a24;
         }
     }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 7px 10px;
+        font-family: "Roboto Slab", sans-serif;
+
+        &_btn {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            order: 2;
+        }
+    }
+
+    &__film-block {
+        height: calc(750px - 162px);
+        // TODO fix height
+    }
+
+    &__item-search {
+        position: relative;
+    }
+
+    &__label {
+        display: block;
+    }
+
+    &__search-wrap {
+        position: absolute;
+        z-index: 10;
+        right: -10px;
+        top: 45px;
+        min-width: 290px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__input {
+        border: 0;
+        outline: 0;
+        padding: 7px 18px;
+        border-radius: 6px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 34px;
+        font-family: "Roboto", sans-serif;
+    }
+
+    &__form-submit {
+        display: none;
+    }
 }
 
-.header-down:after {
-    font-weight: 400;
-    font-size: 8px;
-    display: inline-block;
-    margin-left: 5px;
+.x-icon {
+    position: relative;
+    min-height: 39px;
+    min-width: 42px;
+
+    &::before {
+        content: '';
+        height: 5px;
+        width: 25px;
+        background-color: white;
+        position: absolute;
+        border-radius: 4px;
+        transform: rotate(45deg) translateX(-11px) translateY(7px);
+        transition: all 0.1s ease-in-out;
+    }
+
+    &::after {
+        content: '';
+        height: 5px;
+        width: 25px;
+        background-color: white;
+        position: absolute;
+        border-radius: 4px;
+        transform: rotate(-45deg) translateX(-7px) translateY(-11px);
+        transition: all 0.1s ease-in-out;
+    }
 }
 
-.header-search:before {
-    font-weight: 400;
-    font-size: 14px;
-    display: inline-block;
-    margin-left: 5px;
+.search-hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-.header-shopping:before {
+.header-down {
+    &:hover {
+        animation: toggle-head 0.1s 1;
+    }
+
+    &::after {
+        font-weight: 400;
+        font-size: 8px;
+        margin-left: 5px;
+    }
+}
+
+.header-search {
+    &:before {
+        font-weight: 400;
+        font-size: 22px;
+    }
+}
+
+.header-shopping {
+    order: 3;
+    padding: 0 10px;
+    min-height: 38px;
+    
+
+    &:before {
     font-weight: 400;
-    font-size: 14px;
-    display: inline-block;
-    margin-left: 5px;
+    font-size: 22px;
+    margin-right: 5px;
+    }
+}
+
+@keyframes toggle-head {
+    from {
+        align-items: center;
+   }
+    to {
+        align-items: baseline;
+   }
 }
