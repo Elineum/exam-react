@@ -8,11 +8,12 @@ export const ComingSoon = () => {
     <section>
       <div className='container'>
         <h2>
+          coming soon
           <span></span>
         </h2>
         <div>
           <div>
-            <img src={imgData + filmData[0].poster} alt="img" />
+            <img src={(imgData + (filmData[10] ? filmData[10].poster : filmData[0].poster))} alt="soonImage" />
             <div>
 
             </div>
@@ -23,14 +24,14 @@ export const ComingSoon = () => {
           <div>
             <div>
               <h3>
-                {filmData[0].title}
+                {filmData[10] ? filmData[10].title : filmData[0].title}
               </h3>
             </div>
             <div>
               <span></span>
             </div>
             <div>
-              <p>{filmData[0].overwiev}</p>
+              <p>{filmData[10] ? filmData[10].overwiev : filmData[0].overwiev}</p>
             </div>
             <div>
               <span>
