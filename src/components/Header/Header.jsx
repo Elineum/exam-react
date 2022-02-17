@@ -43,9 +43,11 @@ export const Header = () => {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 300,
+    speed: 800,
     slidesToShow: 3,
     slidesToScroll: 3,
+    autoplay: true,
+    autoplaySpeed: 5000,
   };
 
   function visibility() {
@@ -121,7 +123,7 @@ export const Header = () => {
                 <h6>{item.orig_title}</h6>
               </div>
               <div className="page-head__film-text">
-                <p>{typeof item.release == 'string' ? item.release.slice(0,4) : item.release}</p>
+                <p>{typeof item.release == 'string' ? item.release.slice(0,4) : item.release}, <span className="page-head__film-language">{item.language}</span></p>
               </div>
             </div>
           ))}

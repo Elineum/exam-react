@@ -39,6 +39,7 @@ function App() {
   let checkData = localFilm ? localFilm : mockData;
   let checkImg = localImg ? localImg : mockImg;
   let checkGenres = localGenres ? localGenres : mockGenres;
+
   const [filmData, setFilmData] = useState([checkData]);
   const [imgData, setImgData] = useState([checkImg]);
   const [genresData, setGenresData] = useState([checkGenres]);
@@ -68,19 +69,10 @@ function App() {
 
           setFilmData(temp);
           localStorage.setItem("data", JSON.stringify(temp));
-          setPageData(pageData + 1);
         });
     }
-
     fetchData(pageData);
   }, []);
-
-  // useEffect(() => {
-  //   if (pageData < 6) {
-  //     fetchData()
-  //   }
-
-  // }, [pageData])
 
   useEffect(() => {
     fetch(process.env.REACT_APP_GENRES_API)

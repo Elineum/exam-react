@@ -1,0 +1,87 @@
+.our-partners {
+    text-align: center;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 549px;
+
+    &__title-wrap {
+        margin-bottom: 15px;
+
+        & h1 {
+            text-transform: uppercase;
+            color: black;
+            font-size: 46px;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+    }
+
+    &__span-wrap {
+        margin-bottom: 45px;
+        span {
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: #b7b7b7;
+            margin: 0 auto;
+        }
+    }
+
+    &__list {
+        list-style: none;
+    }
+
+    & .slick-slide {
+        display: flex !important;
+        justify-content: center;
+    }
+
+    & .slick-dots {
+        position: static;
+        padding-top: 10px;
+    }
+    
+    & .slick-dots li {
+        width: 12px;
+        height: 12px;
+        margin: 0 14px;
+    }
+
+    & .slick-dots li button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        transition: all ease-in-out 0.1s;
+
+        &:hover {
+            background-color: #b7b7b7;
+            opacity: 1;
+        }
+
+        &::before {
+            content: "";
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            border: 2px solid #b7b7b7;
+            background-color: transparent;
+            opacity: 1;
+        }
+
+        &:focus {
+            opacity: 1;
+        }
+    }
+
+    & .slick-dots .slick-active button {
+        background-color: #b7b7b7;
+        border-radius: 50%;
+        opacity: 1;
+
+        &:focus {
+            opacity: 1;
+        }
+    }
+}
