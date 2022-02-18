@@ -1,0 +1,121 @@
+.recent-news {
+    text-align: center;
+    min-height: 937px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title-wrap {
+        margin-bottom: 20px;
+
+        & h1 {
+            text-transform: uppercase;
+            color: black;
+            font-size: 46px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+        }
+    }
+
+    &__content-block {
+        text-align: start;
+    }
+
+    &__span-wrap {
+        margin-bottom: 65px;
+
+        span {
+            display: block;
+            width: 100px;
+            height: 2px;
+            background-color: #b7b7b7;
+            margin: 0 auto;
+        }
+    }
+
+    &__content-list {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    &__content-item {
+        max-width: 370px;
+    }
+
+    &__img-wrap {
+        margin-bottom: 8px;
+    }
+
+    &__title-link {
+        display: inline;
+        color: #151515;
+        transition: .3s all ease;
+        text-decoration: none;
+        font-size: 22px;
+        font-weight: 600;
+        line-height: 1.36;
+        letter-spacing: 0;
+        transition: all ease-in-out 0.3s;
+
+        &:hover {
+            color: #d81a24;
+        }
+    }
+
+    &__content-date {
+        padding-top: 10px;
+        font-weight: 300;
+        color: #b7b7b7;
+        font-size: 'Roboto', sans-serif;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    &__content-text {
+        margin-bottom: 6px;
+        font-weight: 300;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+    }
+
+    &__comment-num {
+        margin-left: 6px;
+        display: inline;
+        font-size: 16px;
+        color: #d81a24;
+        font-weight: 700 !important;
+        font-family: "Roboto", sans-serif;
+        text-decoration: none;
+        transition: all ease-in-out 0.3s;
+        min-width: 34px;
+
+        &:hover {
+            color: #322f2f;
+        }
+    }
+
+    &__button {
+        font-family: "Roboto Slab", sans-serif;
+        min-width: 240px;
+        text-transform: uppercase;
+        transition: all ease-in-out 0.3s;
+        font-weight: 700;
+        border: 2px solid #d81a24;
+        padding: 15px 40px;
+        font-size: 18px;
+        border-radius: 6px;
+        color: #d81a24;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #d81a24;
+            color: #fff;
+        }
+    }
+}

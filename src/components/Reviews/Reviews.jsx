@@ -47,7 +47,7 @@ export const Reviews = () => {
   const settings = {
     arrows: false,
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 800,
     slidesToShow: 2,
     slidesToScroll: 2,

@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import { AppContext } from "../../context";
 import {
   ROUTE_BASKET,
   ROUTE_CATALOG,
@@ -13,8 +11,6 @@ import {
 import { Home } from "../Home/Home";
 
 export const Main = () => {
-  const { filmList } = useContext(AppContext);
-
   return (
     <main>
       <Routes>

@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useContext, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Header.scss";
 import logo from "../../logo.png";
 import backgroundHeader from "../../bg.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import {
   ROUTE_BASKET,
   ROUTE_CATALOG,
@@ -13,10 +13,7 @@ import {
   ROUTE_PAGES,
   ROUTE_SHOP,
 } from "../../utils/constants";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import { AppContext } from "../../context";
+import { HeaderSlider } from "../HeaderSlider/HeaderSlider";
 
 const MENU_ITEMS = [
   { path: ROUTE_HOME, label: "Home", classes: "page-head__link" },
@@ -38,16 +35,15 @@ const MENU_ITEMS = [
 
 export const Header = () => {
   const [visible, setVisible] = useState(0);
-  const { filmData, imgData } = useContext(AppContext);
-  const settings = {
-    arrows: false,
-    dots: true,
-    infinite: true,
-    speed: 800,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    autoplay: true,
-    autoplaySpeed: 5000,
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleScroll = () => {
+    setScroll(window.scrollY);
   };
 
   function visibility() {
@@ -60,75 +56,97 @@ export const Header = () => {
 
   return (
     <header
-      className="page-head"
+      className={
+        scroll > document.documentElement.clientHeight / 6
+          ? "page-head page-head_adapt"
+          : "page-head"
+      }
       style={{ backgroundImage: `url(${backgroundHeader})` }}
     >
-      <div className="page-head__wrap container">
-        <div className="page-head__adaptive-wrap">
-          <div className="page-head__logo-wrap">
-            <a href="#" target="_blank" className="page-head__link-logo">
-              <img src={logo} alt="logo" />
-            </a>
-          </div>
-        </div>
-        <nav className="page-head__navigation">
-          <ul className="page-head__list">
-            {MENU_ITEMS.map((item, ind) => (
-              <li key={ind} className="page-head__item">
-                <NavLink to={item.path} className={item.classes}>
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-            <li className="page-head__item page-head__item-search">
-              <button
-                className={`page-head__link page-head__link_btn ${
-                  !visible ? "header-search" : "x-icon"
-                }`}
-                onClick={() => visibility()}
-              ></button>
-              <div
-                className={`page-head__search-wrap ${
-                  !visible ? "search-hidden" : ""
-                }`}
-              >
-                <form className="page-head__form">
-                  <label htmlFor="search-area" className="page-head__label">
-                    <input
-                      type="text"
-                      id="search-area"
-                      className="page-head__input"
-                      placeholder="Search.."
-                    />
-                  </label>
-                  <button
-                    type="submit"
-                    className="page-head__form-submit"
-                  ></button>
-                </form>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <section className="page-head__film-block container">
-        <Slider {...settings}>
-          {filmData.map((item, ind) => (
-            <div className="page-head__film-box" key={ind}>
-              <div className="page-head__poster-wrap">
-                <div className="page-head__image-wrap"><img src={imgData + item.poster} alt="posterImage"/></div>
-                <div className="page-head__shadow"></div>
-              </div>
-              <div className="page-head__film-title">
-                <h6>{item.orig_title}</h6>
-              </div>
-              <div className="page-head__film-text">
-                <p>{typeof item.release == 'string' ? item.release.slice(0,4) : item.release}, <span className="page-head__film-language">{item.language}</span></p>
-              </div>
+      <div
+        className={
+          scroll > document.documentElement.clientHeight / 6
+            ? "page-head__absolute-bg"
+            : ""
+        }
+      >
+        <div
+          className={
+            scroll > document.documentElement.clientHeight / 6
+              ? "page-head__wrap page-head__wrap_app container"
+              : "page-head__wrap container"
+          }
+        >
+          <div className="page-head__adaptive-wrap">
+            <div
+              className={
+                scroll > document.documentElement.clientHeight / 6
+                  ? ""
+                  : "page-head__logo-wrap"
+              }
+            >
+              <a href="#" target="_blank" className="page-head__link-logo" onClick={(e)=>{
+                e.preventDefault();
+                window.scroll(0,0);
+              }}>
+                <img src={logo} alt="logo" />
+              </a>
             </div>
-          ))}
-        </Slider>
-      </section>
+          </div>
+          <nav className="page-head__navigation container">
+            <ul className="page-head__list">
+              {MENU_ITEMS.map((item, ind) => (
+                <li key={ind} className="page-head__item">
+                  <NavLink to={item.path} className={item.classes}>
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+              <li className="page-head__item page-head__item-search">
+                <button
+                  className={`page-head__link page-head__link_btn ${
+                    !visible ? "header-search" : "x-icon"
+                  }`}
+                  onClick={() => visibility()}
+                ></button>
+                <div
+                  className={`page-head__search-wrap ${
+                    !visible ? "search-hidden" : ""
+                  }`}
+                >
+                  <form className="page-head__form">
+                    <label htmlFor="search-area" className="page-head__label">
+                      <input
+                        type="text"
+                        id="search-area"
+                        className="page-head__input"
+                        placeholder="Search.."
+                      />
+                    </label>
+                    <button
+                      type="submit"
+                      className="page-head__form-submit"
+                    ></button>
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <Routes>
+        <Route path={ROUTE_HOME} element={<HeaderSlider />} />
+        <Route path={ROUTE_CATALOG} element={<h1>1</h1>} />
+        <Route path={ROUTE_NEWS} element={<h1>1</h1>} />
+        <Route path={ROUTE_PAGES} element={<h1>1</h1>} />
+      </Routes>
+      <div className={
+          scroll > document.documentElement.clientHeight / 1.46
+            ? "page-head__button-up icon-up"
+            : "page-head__button-up icon-up page-head__button-up_hidden"
+        } onClick={()=>window.scroll(0,0)}></div>
     </header>
   );
 };
+
+//TODO fix routes in 134 string

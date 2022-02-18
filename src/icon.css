@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
-  text-transform: none;
+  xt-transform: none;
 
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
@@ -28,11 +28,26 @@
   content: "\f002";
   font-family: 'icomoon';
 }
+.icon-star:before {
+  content: "\f005";
+}
+.icon-check:before {
+  content: "\f00c";
+}
 .icon-close:before {
   content: "\f00d";
 }
 .icon-trash:before {
   content: "\f014";
+}
+.icon-repeat:before {
+  content: "\f01e";
+}
+.icon-refresh:before {
+  content: "\f021";
+}
+.icon-play:before {
+  content: "\f04b";
 }
 .icon-comment:before {
   content: "\f075";
@@ -56,8 +71,12 @@
 .icon-google:before {
   content: "\f0d5";
 }
-.icon-mail-reply:before {
-  content: "\f112";
+.icon-caret-right:before {
+  content: "\f0da";
+}
+.icon-spinner:before {
+  content: "\f110";
+  animation: spinner 1s infinite linear;
 }
 .icon-reply:before {
   content: "\f112";
@@ -73,8 +92,25 @@
 }
 
 
-/* custom */
 .header-down:after {
   content: "\f078";
   font-family: 'icomoon';
+}
+
+.recent-news-comment:before {
+  content: "\f075";
+  font-family: 'icomoon';
+  font-size: 18px;
+  color: #dfdfdf;
+  margin-right: 7px;
+}
+
+
+@keyframes spinner {
+  from {
+    transform: rotate(-45deg);
+  }
+  to {
+    transform: rotate(315deg);
+  }
 }

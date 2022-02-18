@@ -2,28 +2,35 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    &__adaptive-wrap {
-        padding: 30px;
-
-        @media (min-width: 768px) {
-            padding: 55px 0;
-        }
-
-        @media (min-width: 1200px) {
-            padding: 48px 0;
-        }
+    &_adapt {
+        padding-top: 157px;
     }
 
     &__logo-wrap {
         padding-bottom: 11px;
     }
 
+    &__absolute-bg {
+        background-color: #151515;
+        position: fixed;
+        left: 0;
+        top: 0;
+        min-width: 100%;
+        z-index: 999;
+        display: block;
+        transition: all ease-in-out 0.1s;
+    }
+
     &__wrap {
-        position: relative;
         display: grid;
         grid-template-columns: max-content max-content;
         justify-content: space-between;
         align-items: center;
+        min-height: 157px;
+
+        &_app {
+            min-height: 75px;
+        }
     }
 
     &__list {
@@ -49,7 +56,7 @@
             order: 2;
         }
 
-        &.active {
+        & .active {
             background-color: #d81a24;
             border-radius: 4px;
         }
@@ -68,10 +75,6 @@
         font-weight: 700;
         padding: 7px 10px;
         font-family: "Roboto Slab", sans-serif;
-
-        & .active {
-            background-color: #d81a24;
-        } 
 
         &_btn {
             border: none;
@@ -170,6 +173,35 @@
 
     &__film-language {
         text-transform: uppercase;
+    }
+
+    &__button-up {
+        position: fixed;
+        right: 40px;
+        bottom: 40px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: #d81a24;
+        z-index: 10;
+        transform: translateY(0);
+        transition: all ease-in-out 0.3s;
+        cursor: pointer;
+
+        &_hidden {
+            transform: translateY(500px);
+        }
+    }
+
+    .icon-up {
+        &::before {
+        font-size: 24px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -55%);
+        color: white;
+        }
     }
 
     & .slick-slide {
@@ -325,3 +357,8 @@
         transform: translateY(0%);
    }
 }
+
+// .bg {
+//     background-color: brown;
+//     max-height: 75px;
+// }
