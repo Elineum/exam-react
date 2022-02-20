@@ -1,5 +1,5 @@
 import React from "react";
-import "./Reviews.scss"
+import "./Reviews.scss";
 import sharon from "../../photo-image/sharon.jpg";
 import jack from "../../photo-image/jack.jpg";
 import kelly from "../../photo-image/kelly.jpg";

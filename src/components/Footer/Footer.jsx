@@ -4,7 +4,7 @@ import React from "react";
 import logo from "../../logo.png";
 import "./Footer.scss";
 
-// TODO проверить 
+// TODO проверить
 
 const ICON_LINKS = [
   { href: "#", icon: "icon-facebook" },
@@ -39,7 +39,11 @@ export const Footer = () => {
           </ul>
           <div className="page-foot__copyright">
             <p>
-              © 2022 All Rights Reserved. <a href="#" className="page-foot__copyright-link">Terms of Use</a>.
+              © 2022 All Rights Reserved.{" "}
+              <a href="#" className="page-foot__copyright-link">
+                Terms of Use
+              </a>
+              .
             </p>
           </div>
         </div>

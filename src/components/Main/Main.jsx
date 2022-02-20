@@ -14,7 +14,7 @@ export const Main = () => {
   return (
     <main>
       <Routes>
-        <Route path={ROUTE_HOME} element={<Home/>} />
+        <Route path={ROUTE_HOME} element={<Home />} />
         <Route path={ROUTE_CATALOG} element={<h1>TEST2</h1>} />
         <Route path={ROUTE_NEWS} element={<h1>TEST3</h1>} />
         <Route path={ROUTE_PAGES} element={<h1>TEST4</h1>} />

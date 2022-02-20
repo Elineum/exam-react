@@ -1,0 +1,143 @@
+.modal-window {
+    background-color: rgba(0,0,0, 0.55);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+
+    &__content {
+        background-color: white;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        min-width: 1050px;
+        min-height: 480px;
+        border-radius: 10px;
+        padding: 15px;
+        display: flex;
+        box-shadow: 0 0 15px black;
+        justify-content: space-between
+    }
+
+    &__text-title {
+
+        & h2 {
+            font-size: 28px;
+        }
+    }
+
+    &__text-content {
+        padding: 0 15px;
+        max-width: 70%;
+        color: black;
+        font-weight: 400;
+    }
+
+    &__votes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__text-genres {
+        display: flex;
+        gap: 15px;
+        font-size: 18px;
+    }
+
+    &__first-info {
+        color: rgb(97, 97, 97);
+        font-weight: 300;
+    }
+
+    &__uppercase {
+        text-transform: uppercase;
+    }
+
+    &__button-close {
+        position: absolute;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        background-color: transparent;
+        right: 15px;
+        top: 15px;
+        border: none;
+        border-radius: 4px;
+        transition: all ease-in-out 0.3s;
+        z-index: 10;
+
+        &:hover {
+            &::after, &::before {
+                background-color: #d81a24;
+            }
+        }
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            height: 5px;
+            width: 25px;
+            background-color: black;
+            border-radius: 10px;
+            top: 50%;
+            transform: translate(-50%, -40%,) rotate(45deg);
+            transition: all ease-in-out 0.3s;
+            z-index: 10;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            height: 5px;
+            width: 25px;
+            background-color: black;
+            border-radius: 10px;
+            top: 50%;
+            transform: translate(-50%, -40%,) rotate(-45deg);
+            transition: all ease-in-out 0.3s;
+            z-index: 10;
+        }
+
+    }
+
+    &__modal-hidden {
+        display: none;
+    }
+
+    &__loader-wrap {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: 9;
+        background-color: white;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        transition: all ease-in-out  0.3s;
+        visibility: visible;
+    }
+
+    &__loader-wrap-closed {
+        visibility: hidden;
+    }
+}
+
+.modal-spinner {
+    font-size: 40px;
+    animation: modal-spinner 1s infinite linear;
+}
+
+@keyframes modal-spinner {
+    from {
+      transform: rotate(-45deg);
+    }
+    to {
+      transform: rotate(315deg);
+    }
+  }

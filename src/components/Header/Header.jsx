@@ -85,10 +85,15 @@ export const Header = () => {
                   : "page-head__logo-wrap"
               }
             >
-              <a href="#" target="_blank" className="page-head__link-logo" onClick={(e)=>{
-                e.preventDefault();
-                window.scroll(0,0);
-              }}>
+              <a
+                href="#"
+                target="_blank"
+                className="page-head__link-logo"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.scroll(0, 0);
+                }}
+              >
                 <img src={logo} alt="logo" />
               </a>
             </div>
@@ -140,11 +145,14 @@ export const Header = () => {
         <Route path={ROUTE_NEWS} element={<h1>1</h1>} />
         <Route path={ROUTE_PAGES} element={<h1>1</h1>} />
       </Routes>
-      <div className={
+      <div
+        className={
           scroll > document.documentElement.clientHeight / 1.46
             ? "page-head__button-up icon-up"
             : "page-head__button-up icon-up page-head__button-up_hidden"
-        } onClick={()=>window.scroll(0,0)}></div>
+        }
+        onClick={() => window.scroll(0, 0)}
+      ></div>
     </header>
   );
 };

@@ -1,52 +1,70 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../../context';
+import React, { useContext, useEffect } from "react";
+import { AppContext } from "../../context";
 
 export const ComingSoon = () => {
   const { filmData, imgData } = useContext(AppContext);
 
+  useEffect(() => {
+    fetch(process.env.REACT_APP_SEARCH + "758769" + process.env.REACT_APP_KEY)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+      });
+  }, []);
+
   return (
     <section>
-      <div className='container'>
-        <h2>
-          coming soon
+      <div className="container">
+        <div>
+          <h2></h2>
+        </div>
+        <div>
           <span></span>
-        </h2>
+        </div>
         <div>
           <div>
-            <img src={(imgData + (filmData[10] ? filmData[10].poster : filmData[0].poster))} alt="soonImage" />
-            <div>
-
-            </div>
-            <div>
-
-            </div>
+            <img src="" alt="" />
           </div>
           <div>
             <div>
-              <h3>
-                {filmData[10] ? filmData[10].title : filmData[0].title}
-              </h3>
+              <h3></h3>
             </div>
             <div>
-              <span></span>
+              <span></span>|{" "}
+              <span>
+                <a href=""></a>
+              </span>
+              <span>
+                <a href=""></a>
+              </span>
+              <span>
+                <a href=""></a>
+              </span>
+              | <span></span>
             </div>
             <div>
-              <p>{filmData[10] ? filmData[10].overwiev : filmData[0].overwiev}</p>
+              <p></p>
             </div>
             <div>
-              <span>
-
-              </span>
-              <span>
-
-              </span>
-              <span>
-
-              </span>
+              <div>
+                <span></span>
+                <span></span>
+              </div>
+              <div>
+                <span></span>
+                <span></span>
+              </div>
+              <div>
+                <span></span>
+                <span></span>
+              </div>
             </div>
           </div>
         </div>
+        <div>
+          <button></button>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};

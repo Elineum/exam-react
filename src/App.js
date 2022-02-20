@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 import { Main } from "./components/Main/Main";
+import { ModalWindow } from "./components/ModalWindow/ModalWindow";
 import { AppContext } from "./context";
 
 const mockData = [
@@ -43,7 +44,9 @@ function App() {
   const [filmData, setFilmData] = useState([checkData]);
   const [imgData, setImgData] = useState([checkImg]);
   const [genresData, setGenresData] = useState([checkGenres]);
+  const [isModalVisible, setModalVisible] = useState(0);
   const [pageData, setPageData] = useState(1);
+  const [targetInfo, setTargetInfo] = useState([]);
 
   useEffect(() => {
     async function fetchData(num) {
@@ -66,6 +69,7 @@ function App() {
             vote_avg: item.vote_average,
             vote_count: item.vote_count,
           }));
+          console.log(temp);
 
           setFilmData(temp);
           localStorage.setItem("data", JSON.stringify(temp));
@@ -96,16 +100,26 @@ function App() {
       });
   }, []);
 
-  console.log(filmData);
-  console.log(imgData);
-  console.log(genresData);
+  function modalToggle(e) {
+    if (!isModalVisible) {
+      setModalVisible(1)
+      setTimeout(()=>setModalVisible(2), 300)
+    } else {
+      setModalVisible(0)
+    }
+  }
+
+  // console.log(filmData);
+  // console.log(imgData);
+  // console.log(genresData);
 
   return (
-    <AppContext.Provider value={{ filmData, imgData, genresData }}>
+    <AppContext.Provider value={{ filmData, imgData, genresData, targetInfo, setTargetInfo, isModalVisible, modalToggle }}>
       <>
         <Header></Header>
         <Main></Main>
         <Footer></Footer>
+        <ModalWindow></ModalWindow>
       </>
     </AppContext.Provider>
   );

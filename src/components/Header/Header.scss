@@ -1,6 +1,8 @@
 .page-head {
     background-repeat: no-repeat;
     background-size: cover;
+    background-position-x: left;
+    animation: bg 45s infinite linear;
 
     &_adapt {
         padding-top: 157px;
@@ -255,28 +257,6 @@
             opacity: 1;
         }
     }
-
-    // & .slick-dots {
-    //     list-style: none;
-    // }
-
-    // & .slick-dots li {
-    //     height: auto;
-    //     margin: 0 auto;
-    // }
-
-    // & .slick-dots li button {
-    //     height: 10px;
-    //     width: 10px;
-    //     padding: 0;
-    //     background-color: transparent;
-    //     border-radius: 50%;
-    //     border: 1px solid white;
-    // }
-
-    // & .slick-dots .slick-active button {
-    //     background-color: white;
-    // }
 }
 
 .x-icon {
@@ -358,7 +338,14 @@
    }
 }
 
-// .bg {
-//     background-color: brown;
-//     max-height: 75px;
-// }
+@keyframes bg {
+    0% {
+        background-position-x: left;
+    }
+    50% {
+        background-position-x: center;
+    }
+    100% {
+        background-position-x: left;
+    }
+}

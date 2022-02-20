@@ -1,9 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export const TopBox = () => {
   return (
     <section>
-      <div className='container'></div>
+      <div className="container"></div>
     </section>
-  )
-}
+  );
+};
