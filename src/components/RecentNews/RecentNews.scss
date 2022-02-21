@@ -40,6 +40,7 @@
         flex-wrap: wrap;
         gap: 30px;
         margin-bottom: 60px;
+        justify-content: center;
     }
 
     &__content-item {
@@ -112,6 +113,7 @@
         color: #d81a24;
         background-color: transparent;
         cursor: pointer;
+        margin-bottom: 30px;
 
         &:hover {
             background-color: #d81a24;

@@ -69,7 +69,7 @@ export const Reviews = () => {
             {COMMENTATORS.map((item, index) => (
               <li className="reviews__item" key={index}>
                 <div className="reviews__image-wrap">
-                  <img src={item.photo} alt="photo-reviewer" />
+                  <img src={item.photo} alt="reviewer" />
                 </div>
                 <div className="reviews__name">
                   <span>{item.name}</span>

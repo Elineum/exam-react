@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.scss";
 import logo from "../../logo.png";
 import backgroundHeader from "../../bg.jpg";
@@ -28,7 +28,7 @@ const MENU_ITEMS = [
   { path: ROUTE_CONTACT, label: "Contact Us", classes: "page-head__link" },
   {
     path: ROUTE_BASKET,
-    label: "15",
+    label: "0",
     classes: "page-head__link header-shopping",
   },
 ];
@@ -157,4 +157,4 @@ export const Header = () => {
   );
 };
 
-//TODO fix routes in 134 string
+//TODO fix routes in 143 string

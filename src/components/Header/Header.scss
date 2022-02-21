@@ -24,8 +24,7 @@
     }
 
     &__wrap {
-        display: grid;
-        grid-template-columns: max-content max-content;
+        display: flex;
         justify-content: space-between;
         align-items: center;
         min-height: 157px;
@@ -37,10 +36,10 @@
 
     &__list {
         list-style: none;
-        display: grid;
-        grid-template-columns: repeat(8, max-content);
+        display: flex;
         align-items: center;
         gap: 16px;
+        justify-content: end;
     }
 
     &__item {
@@ -130,29 +129,29 @@
         cursor: pointer;
     }
 
-    &__poster-wrap {
-        position: relative;
-
-        &:hover {
-            .page-head__shadow {
-                background-color: rgba(0, 0, 0, 0);
-            }
-        }
-    }
-
     &__image-wrap {
+        position: relative;
         display: flex;
         border: 1px solid rgba(119, 32, 49, 0.5);
         margin-bottom: 10px;
-    }
 
-    &__shadow {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
-        top: 0;
-        transition: all ease-in-out 0.3s;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 1;
+            transition: all ease-in-out 0.3s;
+        }
+
+        &:hover {
+            &::before {
+                opacity: 0;
+            }
+        }
     }
 
     &__film-title {

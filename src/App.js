@@ -69,7 +69,6 @@ function App() {
             vote_avg: item.vote_average,
             vote_count: item.vote_count,
           }));
-          console.log(temp);
 
           setFilmData(temp);
           localStorage.setItem("data", JSON.stringify(temp));
@@ -109,12 +108,27 @@ function App() {
     }
   }
 
+  function getInfo(e) {
+    let element = e.target.closest(".film-box");
+    fetch(
+      process.env.REACT_APP_SEARCH +
+        element.dataset.id +
+        process.env.REACT_APP_KEY
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        setTargetInfo(json);
+      });
+
+    setTimeout(modalToggle, 100);
+  }
+
   // console.log(filmData);
   // console.log(imgData);
   // console.log(genresData);
 
   return (
-    <AppContext.Provider value={{ filmData, imgData, genresData, targetInfo, setTargetInfo, isModalVisible, modalToggle }}>
+    <AppContext.Provider value={{ filmData, imgData, genresData, targetInfo, setTargetInfo, isModalVisible, modalToggle, getInfo }}>
       <>
         <Header></Header>
         <Main></Main>

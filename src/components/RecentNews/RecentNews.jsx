@@ -44,7 +44,7 @@ export const RecentNews = () => {
             {NEWS.map((item, index) => (
               <li className="recent-news__content-item" key={index}>
                 <div className="recent-news__img-wrap">
-                  <img src={item.image} alt="recent-image" />
+                  <img src={item.image} alt="recent-news" />
                 </div>
                 <a href="#" className="recent-news__title-link">
                   {item.title}
