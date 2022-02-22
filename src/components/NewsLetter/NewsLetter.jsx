@@ -9,16 +9,6 @@ const EMAIL_REGEXP = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim;
 
 export const NewsLetter = () => {
   const [isVisible, setVisible] = useState(0);
-  const INPUT = useRef();
-
-  function validateEmail(value) {
-    return EMAIL_REGEXP.test(value);
-  }
-
-  function updateInput() {
-    if (validateEmail(INPUT.value)) INPUT.value = "green";
-    else INPUT.value = INPUT.value.slice(-1);
-  }
 
   function confirmShow() {
     if (!isVisible) {
@@ -71,13 +61,11 @@ export const NewsLetter = () => {
         <div className="newsletters__form-block">
           <form className="newsletters__form" onSubmit={sendEmail}>
             <input
-              ref={INPUT}
               type="email"
               name="mail"
               id="newslettersInput"
               placeholder="Your e-mail..."
               className="newsletters__input"
-              onChange={updateInput}
             />
             <button type="submit" className="newsletters__button">
               Subscribe

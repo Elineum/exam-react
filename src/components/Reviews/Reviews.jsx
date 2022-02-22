@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Reviews.scss";
 import sharon from "../../photo-image/sharon.jpg";
 import jack from "../../photo-image/jack.jpg";
@@ -9,6 +9,7 @@ import albert from "../../photo-image/albert.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { AppContext } from "../../context";
 
 const COMMENTATORS = [
   {
@@ -44,7 +45,8 @@ const COMMENTATORS = [
 ];
 
 export const Reviews = () => {
-  const settings = {
+  const { windowWidth } = useContext(AppContext);
+  let settings = {
     arrows: false,
     dots: true,
     infinite: true,
@@ -54,6 +56,19 @@ export const Reviews = () => {
     autoplay: true,
     autoplaySpeed: 5000,
   };
+
+  if ( windowWidth < 768) {
+    settings = {
+      arrows: false,
+      dots: true,
+      infinite: true,
+      speed: 800,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 5000,
+    };
+  }
 
   return (
     <section className="reviews">

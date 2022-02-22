@@ -21,6 +21,10 @@
             font-size: 46px;
             letter-spacing: 3px;
             font-weight: 600;
+
+            @media screen and (max-width: 375px) {
+                font-size: 32px;
+            }
         }
     }
 
@@ -44,6 +48,10 @@
         letter-spacing: 0.02em;
         font-family: "Roboto", sans-serif;
         margin-bottom: 23px;
+
+        @media screen and (max-width: 320px) {
+            padding: 5px;
+        }
     }
 
     &__form-block {
@@ -53,6 +61,12 @@
     &__form {
         display: flex;
         justify-content: space-between;
+
+        @media screen and (max-width: 768px) {
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
     }
 
     &__input {
@@ -79,6 +93,10 @@
             &::placeholder {
                 color: transparent;
             }
+        }
+
+        @media screen and (max-width: 375px) {
+            width: 300px;
         }
     }
 
@@ -113,8 +131,6 @@
         font-size: 14px;
         font-family: "Roboto", sans-serif;
     }
-
-    // TODO fix input with regular
 
     &__button {
         width: 228px;

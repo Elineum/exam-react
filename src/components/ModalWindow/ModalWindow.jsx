@@ -22,7 +22,7 @@ let mockInfo = {
 
 export const ModalWindow = () => {
   const [redirectedData, setRedirectedData] = useState(mockInfo);
-  const { imgData, targetInfo, isModalVisible, modalToggle } =
+  const { imgData, targetInfo, isModalVisible, modalToggle} =
     useContext(AppContext);
 
   useEffect(() => {
@@ -33,9 +33,9 @@ export const ModalWindow = () => {
     <div
       className={`modal-window ${
         isModalVisible ? "" : "modal-window__modal-hidden"
-      }`}
+      }`} onClick={modalToggle}
     >
-      <div className="modal-window__content">
+      <div className="modal-window__content" onClick={(e)=>e.stopPropagation()}>
         <div className="modal-window__img-wrap">
           <img src={imgData + redirectedData.poster_path} alt="poster" />
         </div>
@@ -50,12 +50,13 @@ export const ModalWindow = () => {
             </h2>
           </div>
           <div className="modal-window__text-genres">
-            <span className="modal-window__first-info">Genres: </span>
+            <span className="modal-window__first-info">Genres: 
             {redirectedData.genres
               ? redirectedData.genres.map((item, index) => (
-                  <span key={index}>{item.name}</span>
+                  <span key={index}> {item.name} </span>
                 ))
               : "Loading..."}
+              </span>
           </div>
           <div className="modal-window__release-date">
             <span className="modal-window__first-info">Release date: </span>

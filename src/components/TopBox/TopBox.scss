@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 0;
 
     &__title-wrap {
         margin-bottom: 15px;
@@ -19,6 +20,7 @@
 
     &__span-wrap {
         margin-bottom: 45px;
+        
         span {
             display: block;
             width: 100px;
@@ -77,6 +79,8 @@
         list-style: none;
         display: flex;
         gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     &__release {

@@ -45,8 +45,9 @@ function App() {
   const [imgData, setImgData] = useState([checkImg]);
   const [genresData, setGenresData] = useState([checkGenres]);
   const [isModalVisible, setModalVisible] = useState(0);
-  const [pageData, setPageData] = useState(1);
+  const [pageData] = useState(1);
   const [targetInfo, setTargetInfo] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(document.documentElement.clientWidth);
 
   useEffect(() => {
     async function fetchData(num) {
@@ -99,6 +100,11 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(document.documentElement.clientWidth));
+    return () => window.removeEventListener("scroll", ()=>setWindowWidth(document.documentElement.clientWidth));
+  }, []);
+
   function modalToggle(e) {
     if (!isModalVisible) {
       setModalVisible(1)
@@ -123,12 +129,12 @@ function App() {
     setTimeout(modalToggle, 100);
   }
 
-  // console.log(filmData);
-  // console.log(imgData);
-  // console.log(genresData);
+  // function closeModalOutside(e) {
+  //   console.log(e.target === );
+  // }
 
   return (
-    <AppContext.Provider value={{ filmData, imgData, genresData, targetInfo, setTargetInfo, isModalVisible, modalToggle, getInfo }}>
+    <AppContext.Provider value={{ filmData, imgData, genresData, targetInfo, setTargetInfo, isModalVisible, modalToggle, getInfo, windowWidth}}>
       <>
         <Header></Header>
         <Main></Main>

@@ -14,6 +14,7 @@ import {
   ROUTE_SHOP,
 } from "../../utils/constants";
 import { HeaderSlider } from "../HeaderSlider/HeaderSlider";
+import { Void } from "../Void/Void";
 
 const MENU_ITEMS = [
   { path: ROUTE_HOME, label: "Home", classes: "page-head__link" },
@@ -141,9 +142,12 @@ export const Header = () => {
       </div>
       <Routes>
         <Route path={ROUTE_HOME} element={<HeaderSlider />} />
-        <Route path={ROUTE_CATALOG} element={<h1>1</h1>} />
-        <Route path={ROUTE_NEWS} element={<h1>1</h1>} />
-        <Route path={ROUTE_PAGES} element={<h1>1</h1>} />
+        <Route path={ROUTE_CATALOG} element={<Void/>} />
+        <Route path={ROUTE_NEWS} element={<Void/>} />
+        <Route path={ROUTE_PAGES} element={<Void/>} />
+        <Route path={ROUTE_SHOP} element={<Void/>} />
+        <Route path={ROUTE_CONTACT} element={<Void/>} />
+        <Route path={ROUTE_BASKET} element={<Void/>} />
       </Routes>
       <div
         className={

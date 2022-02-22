@@ -69,7 +69,7 @@ export const ComingSoon = () => {
             </div>
             <div className="coming-soon__button-link-wrap">
               <button className="coming-soon__button-link" onClick={toggleTrailerWindow}>{trailerText}</button>
-              {trailerText === 'Close trailer?' ? <iframe width="560" height="315" src="https://www.youtube.com/embed/vQCAgCKQ5WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> : ""}
+              {trailerText === 'Close trailer?' ? <iframe width="560" height="315" src="https://www.youtube.com/embed/vQCAgCKQ5WY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen className="coming-soon__iframe-wrap"></iframe> : ""}
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useContext } from "react";
 import "./OurPartners.scss";
 import tourner from "../../partners-image/tourner.png";
 import retro from "../../partners-image/retro.png";
@@ -10,6 +10,7 @@ import babble from "../../partners-image/babble.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { AppContext } from "../../context";
 
 const PARTNERS_LIST = [
   { url: tourner },
@@ -27,7 +28,9 @@ const PARTNERS_LIST = [
 ];
 
 export const OurPartners = () => {
-  const settings = {
+  const { windowWidth } = useContext(AppContext);
+
+  let settings = {
     arrows: false,
     dots: true,
     infinite: false,
@@ -35,6 +38,26 @@ export const OurPartners = () => {
     slidesToShow: 6,
     slidesToScroll: 3,
   };
+
+  if (windowWidth <= 768 && windowWidth > 320) {
+    settings = {
+      arrows: false,
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+    }
+  } else if (windowWidth <= 320) {
+    settings = {
+      arrows: false,
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+    }
+  }
 
   return (
     <section className="our-partners">
